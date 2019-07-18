@@ -1,0 +1,92 @@
+<section class="container-fluid">
+    <div class="slider row">
+        <div class="slider-left col-8 ">
+            <carousel>
+                <slide>
+                    <img class="img-main" src="../../assets/slider1.png" alt="first slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img class="img-main" src="../../assets/slider2.png" alt="second slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img class="img-main" src="../../assets/slider3.png" alt="third slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img class="img-main" src="../../assets/slider4.png" alt="four slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                    <img class="img-main" src="../../assets/slider5.png" alt="five slide" style="display: block; width: 100%;">
+                </slide>
+            </carousel>
+        </div>
+        <div class=" slider-right col-4">
+            <h5> KINH NGHIỆM HAY</h5>
+            <ul>
+                <li>
+                    <a href="">
+                        <p>Nên mua Smart tivi của hãng nào? LG, Samsung, TCL hay Sony?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p>6 lý do bạn nên mua máy lạnh thường thay vì máy lạnh Inverter</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p>Đồng hồ Orient của nước nào, ưu điểm và dòng sản phẩm nổi bật</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p>6 lý do bạn nên mua máy lạnh thường thay vì máy lạnh Inverter</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="promotebanner">
+        <a aria-label="slide" href="https://www.thegioididong.com/sinh-nhat-15-nam-mua-la-giam" onclick="jQuery.ajax({ url: 'https://www.thegioididong.com/bannertracking?bid=28578&amp;r='+ (new Date).getTime(), async: true, cache: false });">
+            <img style="cursor:pointer" src="https://cdn.tgdd.vn/2019/07/banner/1200-75-1200x75.gif" alt="big sinh nhật" width="100%"
+                height="75">
+        </a>
+    </div>
+    <div class="content row">
+
+        <div class="title col-12">
+            <h2>Sản phẩm nổi bật nhất</h2>
+        </div>
+        <div class="image col-2" *ngFor="let product of products" >
+            <div (click)="onDetails(product._id)" >
+                    <img [src]='product.anh' alt="">
+                    <p>{{product.ten}}</p>
+                    <span>{{product.giahientai}} ₫</span>
+            </div>
+            
+        </div>
+    </div>
+    <div class="content row">
+        <div class="title col-12">
+            <h2>Sản phẩm khuyến mãi</h2>
+        </div>
+        <div class="image col-2" *ngFor="let product of products">
+            <div>
+                <div (click)="onDetails(product._id)" *ngIf="product.trangthai == 'giam'">
+                    <img  [src]='product.anh' alt="">
+                    <p>{{product.ten}} </p>
+                    <span class="giam">{{product.giabandau}}</span>
+                    <span> (- {{product.giamgia}}) </span>
+                    <br>
+                    <span>{{product.giahientai}} ₫</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-bot row">
+        <img class="col-3" style="cursor:pointer" src="//cdn.tgdd.vn/qcao/16_07_2019_11_38_43_TCL-Trungthuong.png" alt="2019 - JL - TCL Trúng Thưởng">
+        <img class="col-3" style="cursor:pointer" src="//cdn.tgdd.vn/qcao/08_07_2019_10_12_09_Samsung-Care-640-280.png" alt="2019 - JL - Samsung Smart Care">
+        <img class="col-3" style="cursor:pointer" src="//cdn.tgdd.vn/qcao/02_07_2019_09_47_57_Xa-Hang-Chung-640-280.png" alt="2019 - JU - Xả Hàng TV">
+        <img class="col-3" style="cursor: pointer" src="//cdn.tgdd.vn/qcao/29_06_2019_12_15_08_Elec-ML-640-280.png" alt="2019 - JL - Electrolux May Lanh">
+    </div>
+</section>

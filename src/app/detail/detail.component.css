@@ -1,0 +1,100 @@
+.content{
+    background: white;
+}
+.image img{
+    width: 100%;
+}
+.content-detail p{
+    width: 100%;
+    margin-bottom: 0;
+}
+.content-detail span{
+    color: red;
+}
+.call p{
+    text-align: center;
+    font-size: 16px;
+}
+.call .fas{
+    color: #288ad6;
+}
+.call a{
+    text-decoration: none;
+    color: #288ad6;
+}
+
+.area-oder a{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+.btn-buy{
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    width: 45%;
+    margin-left: 19px;
+    background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
+}
+.policy-content{
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px
+    
+}
+.policy .title{
+    font-size: 16px;
+    font-weight: 400;
+    color: #459b43;
+    text-align: center;
+}
+.policy ul{
+    list-style: none;
+    padding: 0;
+}
+.policy ul li{
+    border-top : 1px solid #ececec;
+    /* border-bottom: 1px solid #ececec; */
+}
+.policy ul li p{
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+.content-detail p{
+    font-size: 16px;
+    vertical-align: middle;
+}
+.content-detail p span{
+    font-size: 24px;
+    color: #d0021b;
+}
+.btn-cart{
+    float: left;
+    height: 50px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+    width: 45%;
+    background:#ffb916;
+}
+.location{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.location p{
+    text-align: center;
+    margin-bottom: 5px;
+   
+    font-size: 14px;
+}
+.location .fas{
+    color: #007bff;
+}
+.location p a{
+    margin-left: 10px;
+    text-decoration: none;
+}

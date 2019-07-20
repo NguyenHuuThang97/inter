@@ -8,18 +8,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
-   results: IProduct[] = [];
-  isSearch: Boolean = false;  
+    isSearch: Boolean = false;  
+   results:IProduct[] = [];
+   products: IProduct[] = [];
+   textSearch: string;
   constructor(private productService: ProductService, private router: Router) { }
-
+  
   ngOnInit() {
+    // this.getData();
+  //  console.log( this.products.length);
   }
   toggleSearch() {
     this.isSearch = !this.isSearch;
   }
-  searchBook(title: string) {
-  // this.results = this.productService.searchProduct(title);
+  searchProduct(title: string) {
+    //  this.results = this.productService.searchProduct(title);
+  }
+  getValueProduct(data){
+    this.router.navigate([`/details/${data._id}`]);
+  }
+  noneSearch(){
+    this.products = []
+    console.log(this.products);
+    
+  }
+  getData() {
+    this.products = [];
+    if(this.textSearch != ''){
+      this.productService.getProducts().subscribe((data) => {
+        this.products = data;
+        console.log(this.products.length);
+        data.map((newdata) => {
+          newdata.anh = `http://localhost:5000/${newdata.anh}`;
+        })
+      })
+    }
+  
   }
 
 }

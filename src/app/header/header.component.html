@@ -1,12 +1,10 @@
-<section>
-    <div class="header">
+<section (click)="noneSearch()" class="container-fluid  main-header">
+    <div class="header row">
         <img src="../../assets/logo1.jpg" alt="">
         <div class="search">
-            <form class="form-inline active-cyan-4">
-                <input class="form-control form-control-sm mr-3 w-75" (keyup)="onSearch(keyword.value)" #keyword type="text" placeholder="Bạn tìm gì..."
-                    aria-label="Search">
-                <i class="fas fa-search" aria-hidden="true" (click)="onSearch(keyword.value)"></i>
-            </form>
+            <input (click)="getData()" [(ngModel)]="textSearch" class="form-control " name="search" type="text" placeholder="Bạn tìm gì..."
+                aria-label="Search">
+            <i class="fas fa-search" aria-hidden="true"></i>
         </div>
         <div class="menu col-lg-6 col-md-4 col-sm-2">
             <ul>
@@ -15,23 +13,32 @@
                     <a href="">Tivi</a>
                 </li>
                 <li>
-                        <i class="fas fa-suitcase"></i>
+                    <i class="fas fa-suitcase"></i>
                     <a href="">Tủ lạnh</a>
                 </li>
                 <li>
-                        <i class="fas fa-box"></i>
+                    <i class="fas fa-box"></i>
                     <a href="">Máy giặt</a>
                 </li>
                 <li>
-                        <i class="fas fa-calculator"></i>
+                    <i class="fas fa-calculator"></i>
                     <a href="">Điều hòa</a>
                 </li>
                 <li>
-                        <i class="fas fa-cart-plus"></i>
+                    <i class="fas fa-cart-plus"></i>
                     <a href="">Giỏ hàng</a>
                 </li>
             </ul>
         </div>
         <div class="clear-float"></div>
+    </div>
+    <div *ngIf="textSearch" class="row table-search">
+        <table class="table table-striped">
+            <tbody>
+                <tr *ngFor="let product of products  | filter:textSearch">
+                    <td (click)="getValueProduct(product)">{{product?.ten}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>

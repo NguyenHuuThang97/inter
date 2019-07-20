@@ -12,6 +12,7 @@ export class DetailComponent implements OnInit {
   id:string;
   results: IProduct[] = [];
   result: IProduct;
+  
   constructor(private productService:ProductService, private activatedRoute: ActivatedRoute, 
     private router: Router) { }
 

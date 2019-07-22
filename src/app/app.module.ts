@@ -15,8 +15,10 @@ import { HomeComponent } from './home/home.component';
 import { DetailComponent } from './detail/detail.component';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ProductService} from './service/product.service';
-import { ShoppingComponent } from './shopping/shopping.component'
-
+import { ShoppingComponent } from './shopping/shopping.component';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,10 +32,12 @@ import { ShoppingComponent } from './shopping/shopping.component'
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
+    ReactiveFormsModule,
     CarouselModule.forRoot(),
     HttpClientModule,
     FormsModule, 
     Ng2SearchPipeModule
+   
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

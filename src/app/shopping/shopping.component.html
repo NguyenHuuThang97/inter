@@ -1,12 +1,60 @@
-<div class="choosenumber col-12">
+<!-- <div class="choosenumber col-12">
   <div class="add ">
-    <button (click)="mua()" ><i class="fas fa-plus"></i></button>
+    <button (click)="them()">
+      <i class="fas fa-plus"></i>
+    </button>
   </div>
   <div class="number">
     <p>{{result?.lengthProduct}}</p>
   </div>
-  <div  class="remove">
-    <button [disabled]='result?.lengthProduct == null' (click)="remove()"><i class="fas fa-minus"></i></button>
+  <div class="remove">
+    <button [disabled]='result?.lengthProduct == null' (click)="remove()">
+      <i class="fas fa-minus"></i>
+    </button>
   </div>
 </div>
-<button (click)="muahang()">mua</button>
+<button (click)="xacnhanmua()">xác nhận mua và điền thông tin</button>
+<button (click)="mua()">thanh toán</button>
+<button>mua tiếp</button> -->
+<section class="bodyShopping">
+<div class="choosenumber col-12">
+  <div class="add ">
+    <button [disabled]="result?.lengthProduct == 5" (click)="them()">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+  <div class="number">
+    <p>{{result?.lengthProduct}}</p>
+  </div>
+  <div class="remove">
+    <button [disabled]='result?.lengthProduct == null' (click)="remove()">
+      <i class="fas fa-minus"></i>
+    </button>
+  </div>
+</div>
+<button (click)="xacnhanmua()">xác nhận mua và điền thông tin</button>
+  <form [formGroup]="formchinh" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">username</label>
+      <input  formControlName='username' id="username" type="text">
+    </div>
+    <div>
+      <label for="email">email</label>
+      <input  formControlName='email' id="email" type="text">
+    </div>
+    <div>
+      <label for="phone">phone</label>
+      <input  formControlName='phone' id="phone" type="text">
+    </div>
+    <div>
+      <label for="address">dia chi</label>
+      <input  formControlName='address' id="address" type="text">
+    </div>
+    <button [disabled]="isChecked">xac nhan form</button>
+  </form>
+
+  
+  <button (click)="mua()">thanh toán</button>
+  <button>mua tiếp</button>
+  
+</section>

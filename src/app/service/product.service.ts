@@ -43,13 +43,13 @@ export class ProductService{
     }
     cart(){
         localStorage.setItem('huhu',JSON.stringify(this.giohang));
-        var count = this.giohang.length;
-        console.log(count);
+        // var count = this.giohang.length;
+        // console.log(count);
       }
    
     getProducts():Observable<IProduct[]> {
         return this.http.get<IProduct[]>(`${this.Port}:5000/api/product/allProduct`).pipe(map(res => {
-            console.log(res);
+            // console.log(res);
             return res;
         }));
     }

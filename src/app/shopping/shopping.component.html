@@ -1,0 +1,12 @@
+<div class="choosenumber col-12">
+  <div class="add ">
+    <button (click)="mua()" ><i class="fas fa-plus"></i></button>
+  </div>
+  <div class="number">
+    <p>{{result?.lengthProduct}}</p>
+  </div>
+  <div  class="remove">
+    <button [disabled]='result?.lengthProduct == null' (click)="remove()"><i class="fas fa-minus"></i></button>
+  </div>
+</div>
+<button (click)="muahang()">mua</button>

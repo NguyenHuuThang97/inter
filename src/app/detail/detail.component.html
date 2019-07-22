@@ -1,37 +1,56 @@
 <section class="container-fluid">
   <div class="content row">
     <div class="title col-lg-12">
-      <h3>{{result.ten}}</h3>
+      <h3>{{result?.ten}}</h3>
       <hr style="margin-bottom: 10px;">
     </div>
     <div class="image col-lg-4 col-12">
-      <img src="{{result.anh}}" alt="">
+      <img src="{{result?.anh}}" alt="">
     </div>
     <div class="content-detail col-lg-4 col-12">
-      <h3>{{result.ten}}</h3>
+      <h3>{{result?.ten}}</h3>
       <p>Giá bán:
-        <span>{{result.giahientai}} ₫</span>
+        <span>{{result?.giahientai}} ₫</span>
       </p>
       <img style="cursor:pointer" src="https://cdn.tgdd.vn/2019/07/banner/DESK@2x-470x110.jpg" alt="Sinh nhật 15 năm Điện máy XANH"
         width="100%" height="110">
 
       <div class="area-oder">
-        <button class="btn-buy">
-          <a href="">
+        <button (click)="openCart()" class="btn-buy">
+          <a>
             <p>MUA NGAY</p>
             <p class="buy_now_subtext">Giao tận nơi</p>
           </a>
         </button>
-        <button class="btn-cart">
-          <a href="">
+        <!-- <div class="choosenumber col-12">
+          <div class="add ">
+            <button (click)="mua()" ><i class="fas fa-plus"></i></button>
+          </div>
+          <div class="number">
+            <p>{{result?.lengthProduct}}</p>
+          </div>
+          <div  class="remove">
+            <button [disabled]='result?.lengthProduct == null' (click)="remove()"><i class="fas fa-minus"></i></button>
+          </div>
+        </div> -->
+        <!-- btn-cart -->
+        <!-- <button class="btn-cart">
+          <a >
             <p class="buy_now_subtext">
                 <i class="fas fa-shopping-cart"></i> 
                 Thêm vào giỏ hàng
             </p>
           </a>
         </button>
-
-      </div>
+        <button (click)="cart()" class="btn-cart">
+          <a >
+            <p class="buy_now_subtext">
+                <i class="fas fa-shopping-cart"></i> 
+                thanh toan
+            </p>
+          </a>
+        </button> -->
+      </div> 
       <hr style="margin-bottom: 0;">
       <div class="call">
         <p>Gọi đặt mua:

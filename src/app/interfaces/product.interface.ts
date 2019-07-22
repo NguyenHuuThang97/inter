@@ -1,10 +1,11 @@
 export interface IProduct{
-    _id?:number;
+    _id?:string;
     ten:string;
     giabandau:string;
     anh:string;
     giamgia:string;
     trangthai:string;
     giahientai:string;
-    soluong:number
+    soluong:number;
+    lengthProduct:number;
 }

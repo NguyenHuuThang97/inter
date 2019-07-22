@@ -14,7 +14,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { DetailComponent } from './detail/detail.component';
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ProductService} from './service/product.service'
+import {ProductService} from './service/product.service';
+import { ShoppingComponent } from './shopping/shopping.component'
 
 @NgModule({
   declarations: [
@@ -23,13 +24,13 @@ import {ProductService} from './service/product.service'
     FooterComponent,
     HomeComponent,
     DetailComponent,
+    ShoppingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
     CarouselModule.forRoot(),
-   // BrowserAnimationsModule,
     HttpClientModule,
     FormsModule, 
     Ng2SearchPipeModule

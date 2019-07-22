@@ -32,7 +32,7 @@
     margin-top: 15px;
     border: none;
     border-radius: 4px;
-    width: 45%;
+    width: 100%;
     margin-left: 19px;
     background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
 }
@@ -77,7 +77,7 @@
     margin-top: 15px;
     border: none;
     border-radius: 4px;
-    width: 45%;
+    width:100%;
     background:#ffb916;
 }
 .location{

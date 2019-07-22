@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   }
   getData() {
     this.productService.getProducts().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.products = data;
       data.map((newdata) => {
         newdata.anh = `http://localhost:5000/${newdata.anh}`;

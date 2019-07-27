@@ -1,0 +1,24 @@
+
+    <div class="content">
+      <div class="login">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">User name</span>
+              </div>
+              <input type="text" #username class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+              </div>
+              <input type="password" #password class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+          </div>
+
+          <div class="button">
+              <button type="button" class="btn btn-info" (click)="onLogin(username.value, password.value)">Login</button>
+          </div>
+          <!-- <div class="dangky">
+              <a href="" [routerLink]="['/signup']">Sign up</a>
+          </div> -->
+      </div>

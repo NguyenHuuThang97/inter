@@ -10,47 +10,75 @@
     <div class="content-detail col-lg-4 col-12">
       <h3>{{result?.ten}}</h3>
       <p>Giá bán:
-        <span>{{result?.giahientai}} ₫</span>
+        <strong>{{result?.giahientai}} ₫</strong>
       </p>
       <img style="cursor:pointer" src="https://cdn.tgdd.vn/2019/07/banner/DESK@2x-470x110.jpg" alt="Sinh nhật 15 năm Điện máy XANH"
         width="100%" height="110">
+      <div class="event-content row">
+        <div class="title">
+          <Strong>Khuyến mãi</Strong>
+          <br>
+        </div>
 
-      <div class="area-oder">
-        <button (click)="openCart()" class="btn-buy">
-          <a>
-            <p>MUA NGAY</p>
-            <p class="buy_now_subtext">Giao tận nơi</p>
-          </a>
-        </button>
-        <!-- <div class="choosenumber col-12">
-          <div class="add ">
-            <button (click)="mua()" ><i class="fas fa-plus"></i></button>
+        <span class="promo">
+          <i class="numeric">1</i>
+          <b>Mừng sinh nhật :</b> Mua tiền mặt hoặc trả góp có lãi Tặng Phiếu mua hàng 15% giá trị sản phẩm không được chi tiền,
+          áp dụng cho đơn hàng sau. </span>
+        <span class="promo">
+          <i class="numeric">2</i>
+          <b>Mừng sinh nhật :</b> Tặng bình giữ nhiệt SN 15 năm MWG khi mua Trả góp 0%/0.5% </span>
+        <span class="promo">
+          <i class="numeric">3</i> Giảm giá 1,000,000đ (Chỉ áp dụng khi mua Trả góp 0%) </span>
+        <span class="promo">
+          <i class="numeric">4</i> Sinh nhật 15 năm trúng 15 lượng vàng với Home Credit </span>
+        <div class="not-repay">* Không áp dụng khi mua trả góp 0%</div>
+
+      </div>
+      <div class="area-oder ">
+        <div class="choosenumber row col-8">
+          <strong>Chọn số lượng: </strong>
+          <div class="remove">
+            <button [disabled]='result?.lengthProduct == 1' (click)="remove()">
+              <i class="fas fa-minus"></i>
+            </button>
           </div>
+
           <div class="number">
             <p>{{result?.lengthProduct}}</p>
           </div>
-          <div  class="remove">
-            <button [disabled]='result?.lengthProduct == null' (click)="remove()"><i class="fas fa-minus"></i></button>
+
+          <div class="add ">
+            <button [disabled]='result?.lengthProduct == result?.soluong' (click)="mua()">
+              <i class="fas fa-plus"></i>
+            </button>
           </div>
-        </div> -->
+
+        </div>
         <!-- btn-cart -->
-        <!-- <button class="btn-cart">
-          <a >
+        <button [disabled]='result?.lengthProduct == null' (click) = "cart()" class="btn-cart">
+          <a>
             <p class="buy_now_subtext">
-                <i class="fas fa-shopping-cart"></i> 
-                Thêm vào giỏ hàng
+              <i class="fas fa-shopping-cart"></i>
+              Thêm vào giỏ hàng
             </p>
           </a>
         </button>
-        <button (click)="cart()" class="btn-cart">
-          <a >
-            <p class="buy_now_subtext">
-                <i class="fas fa-shopping-cart"></i> 
-                thanh toan
-            </p>
+      </div>
+
+      <div class="area1">
+        <button class="btn-installment">
+          <a>
+            <p>MUA TRẢ GÓP 0%</p>
+            <span class="buy_ins_subtext">Trả trước 0₫</span>
           </a>
-        </button> -->
-      </div> 
+        </button>
+        <button class="btn-installment1">
+          <a>
+            <p>MUA TRẢ GÓP 0% QUA THẺ</p>
+            <span class="buy_ins_subtext">Visa ,Master ,JCB</span>
+          </a>
+        </button>
+      </div>
       <hr style="margin-bottom: 0;">
       <div class="call">
         <p>Gọi đặt mua:
@@ -59,12 +87,15 @@
       </div>
     </div>
     <div class="policy col-lg-4 col-12">
-        <div class="location">
-           
-            <p>  <i class="fas fa-map-marker-alt"></i>  <a href="">Đặt giữ hàng tại siêu thị</a> </p>
-        </div>
+      <div class="location">
+
+        <p>
+          <i class="fas fa-map-marker-alt"></i>
+          <a href="">Đặt giữ hàng tại siêu thị</a>
+        </p>
+      </div>
       <div class="policy-content">
-    
+
         <P class="title">MUA NHƯ VUA-CHĂM SÓC NHƯ VIP</P>
         <ul>
           <li>

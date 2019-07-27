@@ -12,9 +12,13 @@ export class HeaderComponent implements OnInit {
    results:IProduct[] = [];
    products: IProduct[] = [];
    textSearch: string;
+   items:any =[];
   constructor(private productService: ProductService, private router: Router) { }
   
   ngOnInit() {
+    var data = JSON.parse(`${localStorage.getItem('huhu')}`);
+    this.items = data;
+    console.log(this.items.length);
     // this.getData();
   //  console.log( this.products.length);
   }
@@ -44,6 +48,12 @@ export class HeaderComponent implements OnInit {
       })
     }
   
+  }
+  onShop(){
+    this.router.navigate(['shoppingcart']);
+  }
+  onHome(){
+    this.router.navigate(['home']);
   }
 
 }

@@ -13,7 +13,13 @@ body {
 .table-search{
     position: absolute;
     z-index: 99;
-    background: yellow;
+    background: white;
+    left: 18%;
+    width: 29%;
+}
+.table-search .table tbody tr td:hover{
+    cursor: pointer;
+    background: lightgray;
 }
 .header img{
     float: left;
@@ -22,16 +28,15 @@ body {
     margin-left: 20px;
 }
 .header .search{
-    /* float: left; */
     margin-top: 12px;
 }
 .search input{
     padding-top: 1px;
     border: 0;
-    position: relative;
+    /* position: relative; */
     background: #fff;
     height: 32px;
-    width: 100%;
+    width: 90%;
     /* text-indent: 10px; */
     font-size: 14px;
     -webkit-border-radius: 4px;
@@ -41,6 +46,7 @@ body {
 .search .fa-search{
     font-size: 20px;
     color: gray;
+    width: 18%;
 }
 .fa-search:hover{
     cursor: pointer;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {ProductService} from '../service/product.service';
 import {IProduct} from '../interfaces/product.interface';
-
+import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -15,7 +15,7 @@ export class DetailComponent implements OnInit {
   shoppingCart = [];
   
   constructor(private productService:ProductService, private activatedRoute: ActivatedRoute, 
-    private router: Router) { }
+    private router: Router, private toastrService:ToastrService) { }
 
   ngOnInit() {
     // this.result.lengthProduct = 0;
@@ -32,12 +32,12 @@ export class DetailComponent implements OnInit {
 
     
   }
-  // mua(){
-  //  this.productService.mua(this.result);
-  // }
-  // remove(){
-  //   this.productService.remove(this.result);
-  // }
+  mua(){
+   this.productService.mua(this.result);
+  }
+  remove(){
+    this.productService.remove(this.result);
+  }
   openCart(){
     this.router.navigate([`/shoppingcart/${this.result._id}`]);
     localStorage.setItem('idProduct',this.result._id);
@@ -45,5 +45,8 @@ export class DetailComponent implements OnInit {
   }
   cart(){
     this.productService.cart();
+    //this.toastrService.success('Thêm vào giỏ hàng thành công');
+    console.log(this.productService.cart());
+    this.router.navigate(['home']);
   }
 }

@@ -7,7 +7,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import {AppRoutingModule} from './app-routing.module'
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import {ToastrModule} from 'ngx-toastr'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -19,6 +19,8 @@ import { ShoppingComponent } from './shopping/shopping.component';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     DetailComponent,
     ShoppingComponent,
+    LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFontAwesomeModule,
     ReactiveFormsModule,
     CarouselModule.forRoot(),
+    ToastrModule.forRoot(),
     HttpClientModule,
     FormsModule, 
     Ng2SearchPipeModule

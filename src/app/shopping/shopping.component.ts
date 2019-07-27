@@ -15,10 +15,16 @@ export class ShoppingComponent implements OnInit {
   result: IProduct;
   formchinh: FormGroup;
   isCheck: boolean = false;
-  hang:any = [];
+  items:any = [];
+  bill:any = {};
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit() {
+    var data = JSON.parse(`${localStorage.getItem('huhu')}`);
+    this. items= data;  
+    console.log(data.length);
+   // console.log(this. items);
+    
     this.formchinh = new FormGroup({
       username: new FormControl(),
       email: new FormControl(),
@@ -26,11 +32,14 @@ export class ShoppingComponent implements OnInit {
       address: new FormControl()
     })
 
-    this.idProduct = localStorage.getItem('idProduct')
-    console.log(this.idProduct);
+    // this.idProduct = localStorage.getItem('idProduct')
+    // console.log(this.idProduct);
     this.productService.getProduct(this.idProduct).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.result = data
+      data.anh = `http://localhost:5000/${data.anh}`;
+      console.log(this.result);
+
     });
 
   }
@@ -38,15 +47,16 @@ export class ShoppingComponent implements OnInit {
     console.log(this.formchinh.value); //gia tri o form
 
   }
-  them() {
+  them(lengthProduct) {
     this.productService.mua(this.result);
+    lengthProduct++;
   }
   remove() {
     this.productService.remove(this.result);
   }
   mua() {
-    this.hang = localStorage.getItem('huhu');
-    console.log(this.hang);
+    this. items = localStorage.getItem('huhu');
+    console.log(this. items);
     
     // this.productService.giohang = [];
     // console.log(this.productService.giohang);
@@ -56,5 +66,17 @@ export class ShoppingComponent implements OnInit {
   xacnhanmua() {
     this.productService.cart();
     // this.router.navigate(['home']);
+  }
+  thanhtoan(){
+    this.bill = {
+      custormer:this.formchinh.value,
+      shoppingcart:this.items
+    }
+    console.log(this.bill);
+    
+  }
+  removePro(idProduct){
+    this.items.splice(this.items.indexOf(idProduct), 1);
+    localStorage.setItem('huhu',JSON.stringify(this.items));
   }
 }

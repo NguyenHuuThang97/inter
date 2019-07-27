@@ -1,60 +1,123 @@
-<!-- <div class="choosenumber col-12">
-  <div class="add ">
-    <button (click)="them()">
-      <i class="fas fa-plus"></i>
-    </button>
-  </div>
-  <div class="number">
-    <p>{{result?.lengthProduct}}</p>
-  </div>
-  <div class="remove">
-    <button [disabled]='result?.lengthProduct == null' (click)="remove()">
-      <i class="fas fa-minus"></i>
-    </button>
+<div class="container-fluid">
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th width=55% scope="col">Mua thêm deal độc quyền</th>
+          <th width=20% scope="col">Đơn giá</th>
+          <th width=20% scope="col">Số lượng</th>
+          <th width="5%" scope="col">Xóa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let item of items'>
+          <td> <img [src]="item.anh" alt=""> {{item.ten}}</td>
+          <td>{{item.giahientai*item.lengthProduct}}</td>
+          <td>{{item.lengthProduct}}
+              <!-- <div class="add ">
+                  <button class="btn" [disabled]="item?.lengthProduct == 5" (click)="them(item.lengthProduct)">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div> -->
+          </td>
+          <td ><i (click)="removePro(item)" class="fas fa-trash-alt"></i></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <form class="form row" [formGroup]="formchinh" (ngSubmit)="onSubmit()">
+      <div class="title">
+        <h4>Thông tin khách hàng</h4>
+      </div>
+        <div class="frm1 col-6">
+          <label for="username">Họ và Tên: </label>
+          <input formControlName='username' id="username" type="text">
+        </div>
+        <div class="frm1 col-6">
+          <label for="email">email: </label>
+          <input formControlName='email' id="email" type="text">
+        </div>
+        <div class="frm1 col-6" >
+          <label for="phone">Số điện thoại: </label>
+          <input formControlName='phone' id="phone" type="text">
+        </div>
+        <div class="frm1 col-6">
+          <label for="address">Địa chỉ: </label>
+          <input formControlName='address' id="address" type="text">
+        </div>
+      <div class="btn col-12">
+          <button class="btn_submit" (click)="thanhtoan()" >THANH TOÁN KHI NHẬN HÀNG</button>
+          <button class="btn_payonline"> THANH TOÁN ONLINE </button>
+      </div>
+       
+      </form>
   </div>
 </div>
-<button (click)="xacnhanmua()">xác nhận mua và điền thông tin</button>
-<button (click)="mua()">thanh toán</button>
-<button>mua tiếp</button> -->
-<section class="bodyShopping">
-<div class="choosenumber col-12">
-  <div class="add ">
-    <button [disabled]="result?.lengthProduct == 5" (click)="them()">
-      <i class="fas fa-plus"></i>
-    </button>
-  </div>
-  <div class="number">
-    <p>{{result?.lengthProduct}}</p>
-  </div>
-  <div class="remove">
-    <button [disabled]='result?.lengthProduct == null' (click)="remove()">
-      <i class="fas fa-minus"></i>
-    </button>
-  </div>
-</div>
-<button (click)="xacnhanmua()">xác nhận mua và điền thông tin</button>
-  <form [formGroup]="formchinh" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="username">username</label>
-      <input  formControlName='username' id="username" type="text">
-    </div>
-    <div>
-      <label for="email">email</label>
-      <input  formControlName='email' id="email" type="text">
-    </div>
-    <div>
-      <label for="phone">phone</label>
-      <input  formControlName='phone' id="phone" type="text">
-    </div>
-    <div>
-      <label for="address">dia chi</label>
-      <input  formControlName='address' id="address" type="text">
-    </div>
-    <button [disabled]="isChecked">xac nhan form</button>
-  </form>
 
-  
-  <button (click)="mua()">thanh toán</button>
-  <button>mua tiếp</button>
-  
-</section>
+
+
+
+<!--
+<section class="container">
+  <div class="bodyShopping row">
+    <div class="choosenumber row col-10">
+      <div class="image col-4 ">
+        <img [src]="result?.anh" alt="">
+      </div>
+      <div class="content-buy  col-5 ">
+        <div class="title">
+            <p>{{result?.ten}}</p> 
+        </div>
+        <div class="buy row">
+          <Strong>Chọn số lượng:</Strong>
+          <div class="remove ">
+            <button class="btn" [disabled]='result?.lengthProduct == 1' (click)="remove()">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+
+          <div class="number ">
+            <p>{{result?.lengthProduct}}</p>
+          </div>
+
+          <div class="add ">
+            <button class="btn" [disabled]="result?.lengthProduct == 5" (click)="them()">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+        <button class="btn-xn" (click)="xacnhanmua()">xác nhận mua và điền thông tin</button>
+        <hr>
+        <div class="pay">
+          <p class="total"><b> Tổng tiền (trên 1 sản phẩm): </b>  <strong class="price">{{result?.giahientai}}</strong> </p> 
+          <strong class="total">Cần thanh toán: </strong>
+        </div>
+      </div>
+      
+    </div>
+    
+    <form [formGroup]="formchinh" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">username</label>
+        <input formControlName='username' id="username" type="text">
+      </div>
+      <div>
+        <label for="email">email</label>
+        <input formControlName='email' id="email" type="text">
+      </div>
+      <div>
+        <label for="phone">phone</label>
+        <input formControlName='phone' id="phone" type="text">
+      </div>
+      <div>
+        <label for="address">dia chi</label>
+        <input formControlName='address' id="address" type="text">
+      </div>
+      <button [disabled]="isChecked">xac nhan form</button>
+    </form>
+    <button (click)="mua()">thanh toán</button>
+    <button>mua tiếp</button>
+  </div>
+
+
+</section> -->

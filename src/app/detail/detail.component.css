@@ -33,7 +33,6 @@
     border: none;
     border-radius: 4px;
     width: 100%;
-    margin-left: 19px;
     background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
 }
 .policy-content{
@@ -67,9 +66,86 @@
     font-size: 16px;
     vertical-align: middle;
 }
-.content-detail p span{
+.content-detail p strong{
+    display: inline-block;
+    overflow: hidden;
     font-size: 24px;
     color: #d0021b;
+    vertical-align: middle;
+}
+.event-content{
+    display: block;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+    margin: 0;
+    background: #fff;
+    margin: 12px 0 12px;
+    padding-bottom: 10px
+}
+
+.promo .numeric{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: #468ee5;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0;
+    
+    font-style: normal;
+    border: 1px solid #468ee5;
+    border-top: 0;
+    padding-bottom: 1px;
+    font-size: 11px;
+}
+.not-repay{
+    padding-left: 10px;
+    color: #d0021b;
+    font-size: 13px;
+    padding-bottom: 8px;
+}
+.event-content .title{
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    background: #f7f7f7;
+}
+.event-content .title strong{
+    text-align: center;
+    font-size: 24px;
+}
+.event-content .promo{
+    display: block;
+    overflow: hidden;
+    padding: 10px 10px 0 20px;
+    color: #333;
+}
+.area-oder .remove button{
+    margin-left: 5px;
+    border: none;
+    font-size: 17px;
+    border: 1px solid lightgray;
+    background: white;
+}
+.area-oder .add button{
+    border: none;
+    font-size: 17px;
+    border: 1px solid lightgray;
+    background: white;
+}
+
+.area-oder .number{
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    margin-top: 2px;
+    height: 29px;
+    width: 28px;
+}
+.area-oder .number p{
+    text-align: center;
 }
 .btn-cart{
     float: left;
@@ -79,6 +155,30 @@
     border-radius: 4px;
     width:100%;
     background:#ffb916;
+}
+.btn-installment{
+    width: 48%;
+    border: none;
+    background: #288ad6;
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 10px 13px 0 0;
+}
+.btn-installment1{
+    width: 49%;
+    border: none;
+    background: #288ad6;
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    margin: 10px 0px 0 0;
+}
+.area1 .btn-installment span, .area1 .btn-installment1 span{
+    font-size: 11px;
+    height: 15px;
+    /* line-height: 20px; */
+    color: white;
 }
 .location{
     border: 1px solid #ddd;

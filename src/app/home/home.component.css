@@ -16,7 +16,9 @@
     line-height: 40px;
     background: #fff;
     margin-right: 15px;
-    padding-left: 100px; 
+    /* padding-left: 100px;  */
+    margin-bottom: 1px;
+    text-align: center;
 }
 .slider-right ul{
   padding: 0;
@@ -33,7 +35,7 @@
     color: black;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-   
+   text-decoration: none;
 }
 .slider-right ul li a p{
    padding-left: 8px;
@@ -92,4 +94,7 @@
 .image img:hover{
     margin: 15px auto;
     transition: all ease 300ms;
+}
+.promotebanner{
+    margin-top: 12px;
 }

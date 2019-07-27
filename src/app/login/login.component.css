@@ -1,0 +1,19 @@
+.content {
+    padding: 5% 30%;
+}
+
+.login {
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: #1180a1;
+    margin-top: 10%;
+}
+
+.button {
+    padding: 0 40%;
+}
+
+.button button {
+    padding: 8px 40px;
+}

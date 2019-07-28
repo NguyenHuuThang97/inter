@@ -13,12 +13,14 @@ export class DetailComponent implements OnInit {
   results: IProduct[] = [];
   result: IProduct;
   shoppingCart = [];
-  
+  number = 1;
+  isCheck = false
   constructor(private productService:ProductService, private activatedRoute: ActivatedRoute, 
     private router: Router, private toastrService:ToastrService) { }
 
   ngOnInit() {
-    // this.result.lengthProduct = 0;
+  
+    
     this.activatedRoute.paramMap.subscribe((params) =>{
       this.id = params.get('id');
 
@@ -33,10 +35,11 @@ export class DetailComponent implements OnInit {
     
   }
   mua(){
-   this.productService.mua(this.result);
+    this.number++;
+  //  this.productService.mua(this.result);
   }
   remove(){
-    this.productService.remove(this.result);
+    // this.productService.remove(this.result);
   }
   openCart(){
     this.router.navigate([`/shoppingcart/${this.result._id}`]);
@@ -44,9 +47,19 @@ export class DetailComponent implements OnInit {
     
   }
   cart(){
-    this.productService.cart();
-    //this.toastrService.success('Thêm vào giỏ hàng thành công');
-    console.log(this.productService.cart());
-    this.router.navigate(['home']);
+  console.log(this.id);
+  
+    if(this.isCheck == true){
+      console.log('có rồi nha');
+      
+      
+    }else{
+      console.log(this.result);
+      
+      this.shoppingCart.push(this.result)
+      localStorage.setItem('huhu',JSON.stringify(this.shoppingCart))
+    }
+    this.shoppingCart = [];
+    // this.router.navigate(['home']);
   }
 }

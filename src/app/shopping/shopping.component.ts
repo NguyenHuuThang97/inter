@@ -23,6 +23,11 @@ export class ShoppingComponent implements OnInit {
     var data = JSON.parse(`${localStorage.getItem('huhu')}`);
     this. items= data;  
     console.log(data.length);
+    this.items.forEach(element => {
+      console.log(element._id);
+      
+    });
+    // this.items = this.items.map(e => e['id']).map((e,i,arr)=>arr.indexOf(e)===i && i).filter(e => this.items[e]).map(e => data[e]);
    // console.log(this. items);
     
     this.formchinh = new FormGroup({

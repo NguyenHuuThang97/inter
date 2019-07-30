@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { IProduct } from 'src/app/interfaces/product.interface';
 import { Router } from '@angular/router';
-
+import  { ICustomer } from 'src/app/interfaces/customer.interface'
 import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-shopping',
@@ -22,9 +22,9 @@ export class ShoppingComponent implements OnInit {
   ngOnInit() {
     var data = JSON.parse(`${localStorage.getItem('huhu')}`);
     this. items= data;  
-    console.log(data.length);
+    console.log(this.items);
     this.items.forEach(element => {
-      console.log(element._id);
+      console.log(element);
       
     });
     // this.items = this.items.map(e => e['id']).map((e,i,arr)=>arr.indexOf(e)===i && i).filter(e => this.items[e]).map(e => data[e]);
@@ -37,10 +37,7 @@ export class ShoppingComponent implements OnInit {
       address: new FormControl()
     })
 
-    // this.idProduct = localStorage.getItem('idProduct')
-    // console.log(this.idProduct);
     this.productService.getProduct(this.idProduct).subscribe((data) => {
-      // console.log(data);
       this.result = data
       data.anh = `http://localhost:5000/${data.anh}`;
       console.log(this.result);
@@ -52,9 +49,9 @@ export class ShoppingComponent implements OnInit {
     console.log(this.formchinh.value); //gia tri o form
 
   }
-  them(lengthProduct) {
+  them() {
     this.productService.mua(this.result);
-    lengthProduct++;
+    // lengthProduct++;
   }
   remove() {
     this.productService.remove(this.result);
@@ -68,17 +65,27 @@ export class ShoppingComponent implements OnInit {
     // this.router.navigate(['home']);
 
   }
-  xacnhanmua() {
-    this.productService.cart();
-    // this.router.navigate(['home']);
-  }
+  // xacnhanmua() {
+  //   this.productService.cart();
+  //   // this.router.navigate(['home']);
+  // }
   thanhtoan(){
-    this.bill = {
-      custormer:this.formchinh.value,
-      shoppingcart:this.items
-    }
-    console.log(this.bill);
-    
+   this.productService.createCustomer(this.formchinh.value).subscribe((response) =>{
+     if(response){
+        alert("Thanh toán thành công");
+        this.router.navigate(["home"]);
+     }
+   }),err =>{
+      if(err.status === 404){
+        alert(err.error.message)
+      }
+   }
+   
+   this.productService.createOderDetail(this.items.element).subscribe((res) =>{
+     console.log(res);
+     
+   })
+
   }
   removePro(idProduct){
     this.items.splice(this.items.indexOf(idProduct), 1);

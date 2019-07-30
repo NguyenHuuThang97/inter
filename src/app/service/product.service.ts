@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../interfaces/product.interface';
-import {User} from '../interfaces/user.interface';
+import { User } from '../interfaces/user.interface';
+import {ICustomer} from '../interfaces/customer.interface';
+import {IOderDetail} from '../interfaces/oderdetail.interface';
 @Injectable({
     providedIn: 'root'
 })
@@ -42,16 +44,38 @@ export class ProductService {
             console.error('het san pham roi ma oi ')
         }
     }
-    cart() {
-            localStorage.setItem('huhu', JSON.stringify(this.giohang));
+
+    cart(sanpham: any) {
+        if (localStorage.getItem('huhu')) {
+            if (this.giohang.indexOf(sanpham) > 0) {
+                for (var i = 0; i < this.giohang.length - 1; i++)
+                    for (var j = i + 1; j < this.giohang.length; j++)
+                        if (this.giohang[i]._id == this.giohang[j]._id) {
+                            this.giohang[i].lengthProduct += this.giohang[j].lengthProduct
+                        }
+                // for (var i = 0; i < this.giohang.length; i++) {
+                //     if (this.giohang[i]._id == this.giohang[i++]._id) {
+
+
+                //         this.giohang[i].lengthProduct += this.giohang[i + 1].lengthProduct;
+                //         // this.giohang.splice(i + 1, 1);
+                //     } else {
+                //         this.giohang.push(sanpham)
+                //     }
+                // }
+            } else {
+                this.giohang.push(sanpham)
+            }
+
+        } else {
+            this.giohang.push(sanpham);
+        }
+        this.giohang = this.giohang.map(e => e['_id']).map((e, i, arr) => arr.indexOf(e) === i && i).filter(e => this.giohang[e]).map(e => this.giohang[e]);
+        localStorage.setItem('huhu', JSON.stringify(this.giohang));
+
     }
-    removeProduct(idProduct){
+    removeProduct(idProduct) {
         return this.http.delete(`${this.Port}:5000/api/product/delete/${idProduct}`);
-        // for( var i = 0; i < this.giohang.length; i++){
-        //         if(this.giohang[i] == sanpham){
-        //             this.giohang.splice(this.giohang[i],1);
-        //         }
-        // }
     }
     getProducts(): Observable<IProduct[]> {
         return this.http.get<IProduct[]>(`${this.Port}:5000/api/product/allProduct`).pipe(map(res => {
@@ -73,8 +97,14 @@ export class ProductService {
             });
         }));
     }
-    onLogin(user:User):Observable<User>{
-        return this.http.post<User>(`${this.Port}:5000/api/user/sign`,user);
+    onLogin(user: User): Observable<User> {
+        return this.http.post<User>(`${this.Port}:5000/api/user/sign`, user);
     }
 
+    createCustomer(customer:ICustomer):Observable<ICustomer>{
+        return this.http.post<ICustomer>(`${this.Port}:5000/api/customer/create`,customer);
+    }
+    createOderDetail(oderdetail:IOderDetail):Observable<IOderDetail>{
+        return this.http.post<IOderDetail>(`${this.Port}:5000/api/oderDetail/create`,oderdetail);
+    }
 }

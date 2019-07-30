@@ -38,24 +38,22 @@
         <div class="choosenumber row col-8">
           <strong>Chọn số lượng: </strong>
           <div class="remove">
-            <button  (click)="remove()">
+            <button [disabled]="result?.lengthProduct == 1" (click)="remove()">
               <i class="fas fa-minus"></i>
             </button>
           </div>
-
           <div class="number">
-            <p>{{number}}</p>
+            <p>{{result?.lengthProduct}}</p>
           </div>
 
           <div class="add ">
-            <button  (click)="mua()">
+            <button [disabled]="result?.lengthProduct == result?.soluong " (click)="mua()">
               <i class="fas fa-plus"></i>
             </button>
           </div>
-
         </div>
         <!-- btn-cart -->
-        <button (click)="cart()" class="btn-cart">
+        <button [disabled]="result?.lengthProduct == null " (click)="cart()" class="btn-cart">
           <a>
             <p class="buy_now_subtext">
               <i class="fas fa-shopping-cart"></i>
@@ -63,7 +61,7 @@
             </p>
           </a>
         </button>
-      </div>
+      </div> 
 
       <div class="area1">
         <button class="btn-installment">

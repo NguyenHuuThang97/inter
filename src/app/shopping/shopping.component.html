@@ -11,24 +11,32 @@
       </thead>
       <tbody>
         <tr *ngFor='let item of items'>
-          <td> <img [src]="item.anh" alt=""> {{item.ten}}</td>
+          <td>
+            <img [src]="item.anh" alt=""> {{item.ten}}</td>
           <td>{{item.giahientai*item.lengthProduct}}</td>
           <td>{{item.lengthProduct}}
-              <!-- <div class="add ">
-                  <button class="btn" [disabled]="item?.lengthProduct == 5" (click)="them(item.lengthProduct)">
-                    <i class="fas fa-plus"></i>
-                  </button>
-                </div> -->
+            <!-- <div class="add ">
+              <button class="btn" [disabled]="item?.lengthProduct == 5" (click)="them()">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div> -->
           </td>
-          <td ><i (click)="removePro(item)" class="fas fa-trash-alt"></i></td>
+          <td>
+            <i (click)="removePro(item)" class="fas fa-trash-alt"></i>
+          </td>
         </tr>
       </tbody>
     </table>
     <hr>
-    <form class="form row" [formGroup]="formchinh" (ngSubmit)="onSubmit()">
-      <div class="title">
-        <h4>Thông tin khách hàng</h4>
-      </div>
+    <div class="total" >
+      <strong>Tổng tiền: </strong>
+    </div>
+    <hr>
+    <div class="form">
+      <form class="form row" [formGroup]="formchinh" (ngSubmit)="onSubmit()">
+        <div class="title">
+          <h4>Thông tin khách hàng</h4>
+        </div>
         <div class="frm1 col-6">
           <label for="username">Họ và Tên: </label>
           <input formControlName='username' id="username" type="text">
@@ -37,7 +45,7 @@
           <label for="email">email: </label>
           <input formControlName='email' id="email" type="text">
         </div>
-        <div class="frm1 col-6" >
+        <div class="frm1 col-6">
           <label for="phone">Số điện thoại: </label>
           <input formControlName='phone' id="phone" type="text">
         </div>
@@ -45,12 +53,13 @@
           <label for="address">Địa chỉ: </label>
           <input formControlName='address' id="address" type="text">
         </div>
-      <div class="btn col-12">
-          <button class="btn_submit" (click)="thanhtoan()" >THANH TOÁN KHI NHẬN HÀNG</button>
+        <div class="btn col-12">
+          <button class="btn_submit" (click)="thanhtoan()">THANH TOÁN KHI NHẬN HÀNG</button>
           <button class="btn_payonline"> THANH TOÁN ONLINE </button>
-      </div>
-       
+        </div>
+
       </form>
+    </div>
   </div>
 </div>
 

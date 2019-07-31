@@ -28,8 +28,8 @@
       </tbody>
     </table>
     <hr>
-    <div class="total" >
-      <strong>Tổng tiền: </strong>
+    <div class="total">
+      <strong>Tổng tiền: {{giachinhthuc}}đ</strong>
     </div>
     <hr>
     <div class="form">
@@ -39,22 +39,34 @@
         </div>
         <div class="frm1 col-6">
           <label for="username">Họ và Tên: </label>
-          <input formControlName='username' id="username" type="text">
+          <input formControlName='username' id="username" required minlength="4" type="text">
+          <div class="status-error" *ngIf="!formchinh.value.username">
+            Name is required.
+          </div>
         </div>
         <div class="frm1 col-6">
           <label for="email">email: </label>
           <input formControlName='email' id="email" type="text">
+          <div  class="status-error"*ngIf="!formchinh.value.email">
+           Email is required.
+          </div>
         </div>
         <div class="frm1 col-6">
           <label for="phone">Số điện thoại: </label>
           <input formControlName='phone' id="phone" type="text">
+          <div class="status-error" *ngIf="!formchinh.value.phone">
+            Phone is required.
+          </div>
         </div>
         <div class="frm1 col-6">
           <label for="address">Địa chỉ: </label>
           <input formControlName='address' id="address" type="text">
+          <div  class="status-error"*ngIf="!formchinh.value.address">
+            Address is required. 
+          </div>
         </div>
         <div class="btn col-12">
-          <button class="btn_submit" (click)="thanhtoan()">THANH TOÁN KHI NHẬN HÀNG</button>
+          <button [disabled]="formchinh.value == null" class="btn_submit" (click)="thanhtoan()">THANH TOÁN KHI NHẬN HÀNG</button>
           <button class="btn_payonline"> THANH TOÁN ONLINE </button>
         </div>
 

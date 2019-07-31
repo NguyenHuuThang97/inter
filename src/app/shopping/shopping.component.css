@@ -40,3 +40,7 @@
     color: white;
     margin-left: 36px;
 }
+.status-error{
+    font-size:14px;
+    color: red;
+}
